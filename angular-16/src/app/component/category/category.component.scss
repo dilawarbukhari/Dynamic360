@@ -1,0 +1,153 @@
+/* 🌿 General Styling */
+body {
+    background-color: #f4f6f9;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+/* 📌 Heading Styling */
+h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #28a745; /* Green theme */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+h3::before {
+    content: "📦";
+    margin-right: 10px;
+}
+
+/* 📋 Category Table */
+.category-table {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.category-table th {
+    background: #28a745;
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 12px;
+}
+
+.category-table td {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 🎨 Action Buttons */
+.btn {
+    border-radius: 30px;
+    font-size: 14px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+/* 🟢 Add Category Button (Green) */
+.btn-primary {
+    background-color: #28a745;
+    color: white;
+    font-size: 15px;
+    padding: 8px 20px;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+}
+
+/* 🟡 Edit Button */
+.btn-warning {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+/* 🔴 Delete Button */
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* 🔍 Search Box */
+input.form-control {
+    border: 2px solid #28a745;
+    border-radius: 6px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+input.form-control:focus {
+    border-color: #218838;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+    outline: none;
+}
+
+/* 📦 Modal Styling */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Header */
+.modal-header {
+    background: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px 12px 0 0;
+    font-weight: bold;
+}
+
+/* Modal Input */
+.modal input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px solid #28a745;
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+.modal input:focus {
+    border-color: #218838;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+    outline: none;
+}
+
+/* Modal Footer */
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.modal .btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.modal .btn-primary {
+    background: #28a745;
+    color: white;
+}

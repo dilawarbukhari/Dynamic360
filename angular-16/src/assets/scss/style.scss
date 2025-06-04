@@ -1,0 +1,26 @@
+// 
+// Xtreme Angular
+// 
+
+//(Required file)
+@import "variable";
+
+// Import Bootstrap source files (Required file)
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "node_modules/@fortawesome/fontawesome-free/scss/solid"; // Solid icons
+@import "node_modules/@fortawesome/fontawesome-free/scss/regular"; // Regular icons
+@import "node_modules/@fortawesome/fontawesome-free/scss/brands"; // Brand icons (optional)
+
+
+//This is for the components (Required file)
+@import "core/core";
+@import "scafholdings";
+@import "components";
+
+//This is for the responsive (Required file)
+@import "responsive";
+
+//In This scss you can write your scss
+@import "custom";

@@ -1,0 +1,59 @@
+<div class="signup-container">
+  <div class="signup-box">
+      <div class="logo">
+          <img src="assets/logo.png" alt="Brand Logo">
+      </div>
+      <h3>Create an Account</h3>
+      <p>Sign up to access your dashboard</p>
+      <form [formGroup]="signupForm">
+          <div class="input-group">
+              <input type="text" placeholder="First Name" formControlName="Firstname">
+              <span *ngIf="signupForm.get('Firstname')?.invalid && (signupForm.get('Firstname')?.dirty || signupForm.get('Firstname')?.touched)" class="text-danger">
+                Firstname is required.
+            </span>
+          </div>
+          <div class="input-group">
+              <input type="text" placeholder="Last Name" formControlName="Lastname">
+              <span *ngIf="signupForm.get('Lastname')?.invalid && (signupForm.get('Lastname')?.dirty || signupForm.get('Lastname')?.touched)" class="text-danger">
+                Lastname is required.
+            </span>
+          </div>
+          <div class="input-group">
+            <input type="username" placeholder="Username" formControlName="Username">
+            <span *ngIf="signupForm.get('Username')?.invalid && (signupForm.get('Username')?.dirty || signupForm.get('Username')?.touched)" class="text-danger">
+                Username is required.
+            </span>
+        </div>   
+        <div class="input-group">
+            <input type="email" class="form-control" placeholder="Email" formControlName="Email">
+            <span *ngIf="signupForm.get('Email')?.invalid && (signupForm.get('Email')?.dirty || signupForm.get('Email')?.touched)" class="text-danger">
+                <span *ngIf="signupForm.get('Email')?.errors?.['required']">Email is required.</span>
+                <span *ngIf="signupForm.get('Email')?.errors?.['email']">Email is invalid.</span>
+            </span>  
+        </div>
+          <div class="input-group password-field">
+              <input type="password" placeholder="Password" id="password" formControlName="Password" >      
+              <span class="eye-icon"  (click)="togglePassword()">
+                <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+              </span>
+              <span *ngIf="signupForm.get('Password')?.invalid && (signupForm.get('Password')?.dirty || signupForm.get('Password')?.touched)" class="text-danger">
+                password is required.
+            </span>
+              
+          </div>
+          <div class="input-group password-field">
+              <input type="confirmpassword" placeholder="Confirm Password" id="confirmPassword" formControlName="Confirmpassword">
+              <span class="eye-icon"  (click)="toggleConfirmPassword()">
+                <i [class]="showconfirmPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+              </span>
+              <span *ngIf="signupForm.get('Confirmpassword')?.invalid && (signupForm.get('Confirmpassword')?.dirty || signupForm.get('Confirmpassword')?.touched)" class="text-danger">
+                Confirmpassword is required.
+            </span>
+          </div>
+          <button type="submit" class="btn-signup" (click)="Signup()">Sign Up</button>
+      </form>
+      <div class="bottom-text">
+          <p>Already have an account? <a href="/login" [routerLink]="'/login'">Login</a></p>
+      </div>
+  </div>
+</div>

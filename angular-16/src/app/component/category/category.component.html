@@ -1,0 +1,78 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+        <h3>Categories</h3>
+        <input type="text" class="form-control w-25" placeholder="Search Category..." [(ngModel)]="searchText" (input)=" filterCategories() ">
+        <button class="btn btn-primary" (click)="openCategoryModal()">Add Category</button>
+    </div>
+    <table class="table table-bordered category-table">
+        <thead>
+            <tr>
+                <th>Sr#No</th>
+                <th>Category Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let response of filteredCategoryList | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage };  let i = index">
+            <tr>
+                <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+                <td>{{ response.name }}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2 px-3" (click)="IsUpdateModel(response)">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                    <button class="btn btn-sm btn-danger px-3" (click)="openDeleteModal(response)">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
+
+<!-- Add/Update Category Modal -->
+<div class="modal fade" id="categoryModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="categoryModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">{{ isModelCheck ? 'Add' : 'Update' }} Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                  
+                <input type="text" class="form-control" placeholder="Enter category name" [(ngModel)]="inputText"  #categoryInput="ngModel" required
+                minlength="3"  #nameInputfield>
+                <span *ngIf="categoryInput.invalid && categoryInput.touched" class="text-danger">
+                    <span *ngIf="categoryInput.errors?.['required']">Category name is required.</span>
+                    <span *ngIf="categoryInput.errors?.['minlength']">Category name must be at least 3 characters long.</span>
+                </span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" (click)="isModelCheck ? isSaveCategory() : isUpdateCategory()"  [disabled]="categoryInput.invalid" >
+                    {{ isModelCheck ? 'Add' : 'Update' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete "<strong>{{ inputText}}</strong>"?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" (click)="deleteCategory()">Delete</button>
+            </div>
+        </div>
+    </div>
+    
+</div>

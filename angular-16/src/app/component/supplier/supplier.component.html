@@ -1,0 +1,111 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+        <h3>Suppliers</h3>
+        <input type="text" class="form-control w-25" placeholder="Search Supplier..." [(ngModel)]="searchText" (input)="filterSuppliers()">
+        <button class="btn btn-primary" (click)="opensupplierModal()">Add Supplier</button>
+    </div>
+    <table class="table table-bordered supplier-table">
+        <thead>
+            <tr>
+                <th>Sr#No</th>
+                <th>Supplier Name</th>
+                <th>Sales Rep</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let response of filteredSupplierList | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }; let i = index">
+            <tr>
+                <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+                <td>{{ response.name }}</td>
+                <td>{{ response.contactPerson }}</td>
+                <td>{{ response.email.length > 20 ? (response.email | slice:0:20) + '...' : response.email }}</td>
+                <td>{{ response.address }}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2 px-3" (click)=" editsupplier(response)">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                    <button class="btn btn-sm btn-danger px-3" (click)="openDeleteModal(response)">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
+
+
+<!-- Add/Update Supplier Modal -->
+<!-- Supplier Add/Update Modal -->
+<div class="modal fade" id="supplierModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="supplierModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ isModelCheck ? 'Add' : 'Update' }} Supplier</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="supplierFormGroup">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter Name" formControlName="name">
+                        <span *ngIf="supplierFormGroup.get('name')?.invalid && (supplierFormGroup.get('name')?.dirty || supplierFormGroup.get('name')?.touched)" class="error-text">
+                            Name is required.
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter Sales Rep" formControlName="contactPerson">
+                        <span *ngIf="supplierFormGroup.get('contactPerson')?.invalid && (supplierFormGroup.get('contactPerson')?.dirty || supplierFormGroup.get('contactPerson')?.touched)" class="error-text">
+                            Sales Rep is required.
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter Phone" formControlName="phone">
+                        <span *ngIf="supplierFormGroup.get('phone')?.invalid && (supplierFormGroup.get('phone')?.dirty || supplierFormGroup.get('phone')?.touched)" class="error-text">
+                            Phone is required.
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Enter Email" formControlName="email">
+                        <span *ngIf="supplierFormGroup.get('email')?.invalid && (supplierFormGroup.get('email')?.dirty || supplierFormGroup.get('email')?.touched)" class="error-text">
+                            <span *ngIf="supplierFormGroup.get('email')?.errors?.['required']">Email is required.</span>
+                            <span *ngIf="supplierFormGroup.get('email')?.errors?.['email']">Email is invalid.</span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter Address" formControlName="address">
+                        <span *ngIf="supplierFormGroup.get('address')?.invalid && (supplierFormGroup.get('address')?.dirty || supplierFormGroup.get('address')?.touched)" class="error-text">
+                            Address is required.
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn cancel-btn" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn confirm-btn" (click)="isModelCheck ? saveDetails() : updateDetails()">
+                    {{ isModelCheck ? 'Add' : 'Update' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header delete-header">
+                <h5 class="modal-title">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete "<strong>{{ deleteText }}</strong>"?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn cancel-btn" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn delete-btn" (click)="deleteDetails()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

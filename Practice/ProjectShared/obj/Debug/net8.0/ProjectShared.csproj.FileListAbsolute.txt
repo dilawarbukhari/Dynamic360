@@ -1,0 +1,17 @@
+E:\Practice .Net\Practice\ProjectShared\bin\Debug\net8.0\ProjectShared.deps.json
+E:\Practice .Net\Practice\ProjectShared\bin\Debug\net8.0\ProjectShared.runtimeconfig.json
+E:\Practice .Net\Practice\ProjectShared\bin\Debug\net8.0\ProjectShared.dll
+E:\Practice .Net\Practice\ProjectShared\bin\Debug\net8.0\ProjectShared.pdb
+E:\Practice .Net\Practice\ProjectShared\bin\Debug\net8.0\PracticeModel.dll
+E:\Practice .Net\Practice\ProjectShared\bin\Debug\net8.0\PracticeModel.pdb
+E:\Practice .Net\Practice\ProjectShared\obj\Debug\net8.0\ProjectShared.csproj.AssemblyReference.cache
+E:\Practice .Net\Practice\ProjectShared\obj\Debug\net8.0\ProjectShared.GeneratedMSBuildEditorConfig.editorconfig
+E:\Practice .Net\Practice\ProjectShared\obj\Debug\net8.0\ProjectShared.AssemblyInfoInputs.cache
+E:\Practice .Net\Practice\ProjectShared\obj\Debug\net8.0\ProjectShared.AssemblyInfo.cs
+E:\Practice .Net\Practice\ProjectShared\obj\Debug\net8.0\ProjectShared.csproj.CoreCompileInputs.cache
+E:\Practice .Net\Practice\ProjectShared\obj\Debug\net8.0\ProjectShared.csproj.CopyComplete
+E:\Practice .Net\Practice\ProjectShared\obj\Debug\net8.0\ProjectShared.dll
+E:\Practice .Net\Practice\ProjectShared\obj\Debug\net8.0\refint\ProjectShared.dll
+E:\Practice .Net\Practice\ProjectShared\obj\Debug\net8.0\ProjectShared.pdb
+E:\Practice .Net\Practice\ProjectShared\obj\Debug\net8.0\ProjectShared.genruntimeconfig.cache
+E:\Practice .Net\Practice\ProjectShared\obj\Debug\net8.0\ref\ProjectShared.dll

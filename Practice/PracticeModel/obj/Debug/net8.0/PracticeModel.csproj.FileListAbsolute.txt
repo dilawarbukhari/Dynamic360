@@ -1,0 +1,14 @@
+E:\Practice .Net\Practice\PracticeModel\bin\Debug\net8.0\PracticeModel.deps.json
+E:\Practice .Net\Practice\PracticeModel\bin\Debug\net8.0\PracticeModel.runtimeconfig.json
+E:\Practice .Net\Practice\PracticeModel\bin\Debug\net8.0\PracticeModel.dll
+E:\Practice .Net\Practice\PracticeModel\bin\Debug\net8.0\PracticeModel.pdb
+E:\Practice .Net\Practice\PracticeModel\obj\Debug\net8.0\PracticeModel.csproj.AssemblyReference.cache
+E:\Practice .Net\Practice\PracticeModel\obj\Debug\net8.0\PracticeModel.GeneratedMSBuildEditorConfig.editorconfig
+E:\Practice .Net\Practice\PracticeModel\obj\Debug\net8.0\PracticeModel.AssemblyInfoInputs.cache
+E:\Practice .Net\Practice\PracticeModel\obj\Debug\net8.0\PracticeModel.AssemblyInfo.cs
+E:\Practice .Net\Practice\PracticeModel\obj\Debug\net8.0\PracticeModel.csproj.CoreCompileInputs.cache
+E:\Practice .Net\Practice\PracticeModel\obj\Debug\net8.0\PracticeModel.dll
+E:\Practice .Net\Practice\PracticeModel\obj\Debug\net8.0\refint\PracticeModel.dll
+E:\Practice .Net\Practice\PracticeModel\obj\Debug\net8.0\PracticeModel.pdb
+E:\Practice .Net\Practice\PracticeModel\obj\Debug\net8.0\PracticeModel.genruntimeconfig.cache
+E:\Practice .Net\Practice\PracticeModel\obj\Debug\net8.0\ref\PracticeModel.dll

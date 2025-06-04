@@ -1,0 +1,200 @@
+/* 🌿 General Styling */
+body {
+    background-color: #f4f6f9;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+/* 📌 Heading Styling */
+h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #28a745; /* Green theme */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+h3::before {
+    content: "🚚";
+    margin-right: 10px;
+}
+
+/* 📋 Supplier Table */
+.supplier-table {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.supplier-table th {
+    background: #28a745;
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 12px;
+}
+
+.supplier-table td {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 🎨 Action Buttons */
+.btn {
+    border-radius: 30px;
+    font-size: 14px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+/* 🟢 Add Supplier Button */
+.btn-primary {
+    background-color: #28a745;
+    color: white;
+    font-size: 15px;
+    padding: 8px 20px;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+}
+
+/* 🟡 Edit Button */
+.btn-warning {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+/* 🔴 Delete Button */
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* 🔍 Search Box */
+input.form-control {
+    border: 2px solid #28a745;
+    border-radius: 6px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+input.form-control:focus {
+    border-color: #218838;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+    outline: none;
+}
+/* 🌿 General Styling */
+body {
+    background-color: #f4f6f9;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+/* 📌 Modal Styling */
+.modal-content {
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 🟢 Modal Header */
+.modal-header {
+    background: #28a745; /* Green theme */
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+}
+
+.delete-header {
+    background: #dc3545; /* Red for delete modal */
+}
+
+/* 🔲 Input Fields */
+.form-group {
+    margin-bottom: 15px;
+}
+
+input.form-control {
+    border: 2px solid #28a745;
+    border-radius: 6px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+input.form-control:focus {
+    border-color: #218838;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+    outline: none;
+}
+
+/* 🚨 Error Messages */
+.error-text {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* 🟢 Add/Update Buttons */
+.confirm-btn {
+    background-color: #28a745;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 8px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.confirm-btn:hover {
+    background-color: #218838;
+}
+
+/* 🟡 Cancel Button */
+.cancel-btn {
+    background-color: #6c757d;
+    color: white;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 8px 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+/* 🔴 Delete Button */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 8px 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}

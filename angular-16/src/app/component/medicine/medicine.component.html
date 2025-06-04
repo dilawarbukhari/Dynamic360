@@ -1,0 +1,133 @@
+<div class="medicine-container">
+    <!-- 🔍 Search Section -->
+    <div class="search-section">
+        <input type="text"  [(ngModel)]="medicineResponse.Name"  placeholder="🔍 Search by Name"/>
+        <select  [(ngModel)]="medicineResponse.categoryId">
+            <option value="0" disabled>🗂 Select Category</option>
+            <option value="0" >All</option>
+            <option *ngFor="let category of CategoryResponse" [value]="category.categoryId">
+              {{ category.name }}
+            </option>
+          </select>
+
+        <select [(ngModel)]="medicineResponse.supplierId">
+            <option value="0" disabled>🏭 Select Supplier</option>
+            <option value="0" >All</option>
+            <option *ngFor="let supplier of SupplierResponse" [value]="supplier.supplierId">
+              {{ supplier.name }}
+            </option>
+          </select>
+        <button class="primary-btn"  (click)=" onSearch()">🔍 Search</button>
+        <button class="secondary-btn" (click)="onreset()">♻️ Reset</button>
+        <button class="add-btn" (click)="openCategoryModal()">➕ Add Medicine</button>
+    </div>
+  
+    <!-- 📋 Medicine Table -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                  <th>Sr.No#</th>
+                    <th>Medicine Name</th>
+                    <th>Category</th>
+                    <th>Supplier</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody  *ngFor="let response of FilteredResponse let i = index">
+                <tr>
+                  <td>{{i + 1}}</td>
+                    <td>{{response.medicineName}}</td>
+                    <td>{{response.categoryName}}</td>
+                    <td>{{response.supplierName}}</td>
+                    <td>{{response.price| currency}}</td>
+                    <td class="action-buttons">
+                        <button class="edit-btn" (click)=" isEditDetail(response)">✏️ Edit</button>
+                        <button class="delete-btn" (click)=" openDeleteModal(response)">🗑 Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  
+  <!-- 🏥 Modal for Adding Medicine -->
+  <div class="modal fade" id="medicineModal" tabindex="-1" aria-labelledby="medicineModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">{{ isModelCheck ? 'Add' : 'Update' }} Medicine</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                  <form  [formGroup]="medicineFormGroup">
+                      <div class="form-group">
+                          <label>Name:</label>
+                          <input type="text" class="form-control" formControlName="medicineName" />
+                      </div>
+                      <div class="form-group">
+                          <label>Category:</label>
+                          <select formControlName="categoryId">
+                            <option value="0" disabled>🗂 Select Category</option>                        
+                            <option *ngFor="let category of CategoryResponse" [value]="category.categoryId">
+                              {{ category.name }}
+                            </option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label>Supplier:</label>
+                          <select formControlName="supplierId">
+                            <option value="0" disabled>🏭 Select Supplier</option>            
+                            <option *ngFor="let supplier of SupplierResponse" [value]="supplier.supplierId">
+                              {{ supplier.name }}
+                            </option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label>Batch Number:</label>
+                          <input type="text" class="form-control" formControlName="batchNumber" />
+                      </div>
+                      <div class="form-group">
+                          <label>Expiry Date:</label>
+                          <input type="date" class="form-control" formControlName="expiryDate"/>
+                      </div>
+                      <div class="form-group">
+                          <label>Price:</label>
+                          <input type="number" class="form-control" formControlName="price"/>
+                      </div>
+                      <div class="form-group">
+                          <label>Stock Quantity:</label>
+                          <input type="number" class="form-control" formControlName="stockQuantity"/>
+                      </div>
+                      
+                      <div class="modal-buttons">
+                          <button type="button" class="btn cancel-btn" data-bs-dismiss="modal">Cancel</button>
+                          <button type="submit" class="btn save-btn"(click)="isModelCheck ?   AddMedicine() : updateDetails()">  {{ isModelCheck ? 'Add' : 'Update' }}</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete "<strong>{{ deleteText}}</strong>"?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" (click)="deleteCategory()">Delete</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
